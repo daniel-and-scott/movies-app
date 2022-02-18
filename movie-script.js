@@ -9,13 +9,13 @@ getAllMovies()
 
 //TODO: Create function that takes the title and displays it
 
-function getTheTitle() {
+let movieTitles = function getTheTitle() {
     fetch('https://foremost-fluttering-carol.glitch.me/movies')
         .then(res => res.json()
             .then(title => console.log(title[0].title)))
 }
 
-getTheTitle()
+console.log(movieTitles);
 
 //TODO: Add movie to list
 
@@ -48,3 +48,13 @@ function addMoviesToList() {
 
 //TODO: Create function that will delete previous inputs
 
+function deleteMoviesFromList(movies, id) {
+    const deleteMovie = {
+        method: 'DELETE',
+    }
+    fetch(`https://foremost-fluttering-carol.glitch.me/movies/${id}`, {method: 'DELETE'})
+        .then(res => res.json()
+            .then(info => console.log(info)));
+}
+// Daniel, this function is still not working like I hoped it would.
+console.log(deleteMoviesFromList(movieTitles, 255));
