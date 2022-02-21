@@ -1,4 +1,3 @@
-
 //TODO: Create function to get data from database
 function getAllMovies() {
     fetch(dataBaseUrl)
@@ -9,13 +8,11 @@ function getAllMovies() {
 getAllMovies()
 
 //TODO: Create function that takes the title and displays it
-
 function getTheTitle() {
     fetch(dataBaseUrl)
         .then(res => res.json()
             .then(title => console.log(title[1].title)))
 }
-
 
 
 //TODO: Add movie to list
@@ -51,18 +48,25 @@ function deleteMoviesFromList(id) {
 
 //TODO: Create function that will change information within the API
 
-function changeInformation(changeExistingInfo ,id) {
-
+function changeInformation(id) {
+    const change = {
+        title: $('#title-change').val(),
+        rating: '5',
+        poster: 'asdf',
+        year: '2020',
+        genre: 'action',
+    }
     const putRequest = {
         method: "PUT",
         headers: {
             "Content-type": "application/json",
         },
-        body: JSON.stringify(changeExistingInfo)
+        body: JSON.stringify(change)
     }
+
     fetch(`${dataBaseUrl}/${id}`, putRequest)
         .then(res => res.json()
-        .then(info => console.log(info)))
-
+            .then(info => console.log(info)))
 }
+
 

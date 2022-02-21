@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!--custom css-->
-    <link rel="stylesheet" href="movie-styling.css">
+    <link rel="stylesheet" href="../css/movie-styling.css">
 </head>
 <body>
+
 <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!--name of website-->
@@ -39,61 +40,71 @@
 </nav>
 
 <!--card to display movies info-->
-<div class="container-fluid d-flex">
+<div class="container-fluid d-flex movie-information">
     <div class="movie-cards"></div>
-    <!--    <div class="card" style="width: 18rem;">-->
-    <!--        <div class="card-body">-->
-    <!--            <h5 class="card-title text-center movie-title">Movie Title</h5>-->
-    <!--            <div class="poster">Poster: google.com</div>-->
-    <!--            <p class="rating">Rating: 5/5</p>-->
-    <!--            <p class="year">Year: 2020</p>-->
-    <!--            <p class="genre">Genre: asdf</p>-->
-    <!--            <p class="director">Director: asdf</p>-->
-    <!--            <p class="plot">Plot: asdf</p>-->
-    <!--            <p class="actors">Actors: asdf</p>-->
-    <!--            <a href="#" class="btn btn-primary">Edit This movie</a>-->
-    <!--            <a href="#" class="btn btn-danger hidden">Delete</a>-->
-    <!--        </div>-->
-    <!--    </div>-->
     <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center movie-title">Movie Title</h5>
+            <div class="poster">Poster: google.com</div>
+            <p class="rating">Rating: 5/5</p>
+            <p class="year">Year: 2020</p>
+            <p class="genre">Genre: asdf</p>
+            <p class="director">Director: asdf</p>
+            <p class="plot">Plot: asdf</p>
+            <p class="actors">Actors: asdf</p>
+            <a href="#" class="btn btn-primary edit-information-btn">Edit This movie</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid d-flex edit-existing-movie hidden">
+    <div class="card">
         <div class="card-body">
             <!--title change-->
             <div class="form-group change-of-title">
                 <label for="title-change">Title:</label>
-                <input class="form-control" id="title-change" aria-describedby="emailHelp"
-                       placeholder="Enter New Title">
+                <input class="form-control" id="title-change" placeholder="Enter new title">
             </div>
             <!--poster change-->
             <div class="form-group change-of-poster">
-                <label for="poster-change">poster:</label>
-                <input class="form-control" id="poster-change" aria-describedby="emailHelp"
-                       placeholder="Enter new poster">
+                <label for="poster-change">Poster:</label>
+                <input class="form-control" id="poster-change" placeholder="Enter new poster">
             </div>
             <!--rating change-->
             <div class="form-group change-of-rating">
                 <label for="rating-change">Rating:</label>
-                <input class="form-control" id="rating-change" aria-describedby="emailHelp"
-                       placeholder="Enter new rating">
+                <input class="form-control" id="rating-change" placeholder="Enter new rating">
             </div>
             <!--year change-->
             <div class="form-group change-of-year">
-                <label for="year-change">year:</label>
-                <input class="form-control" id="year-change" aria-describedby="emailHelp"
-                       placeholder="Enter New Title">
+                <label for="year-change">Year:</label>
+                <input class="form-control" id="year-change" placeholder="Enter year of release">
             </div>
             <!--genre change-->
             <div class="form-group change-of-genre">
-                <label>genre:</label>
+                <label>Genre:</label>
                 <div class="list-of-genres"></div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="drama" value="option1">
-                    <label class="form-check-label" for="drama">Drama</label>
-                </div>
             </div>
-
-
-
-
+            <!--director change-->
+            <div class="form-group change-of-director">
+                <label for="director-change">Director:</label>
+                <input class="form-control" id="director-change" placeholder="Enter new director">
+            </div>
+            <!--plot change-->
+            <div class="form-group change-of-plot">
+                <label for="plot-change">Plot:</label>
+                <input class="form-control" id="plot-change" placeholder="Enter new plot">
+            </div>
+            <!--actors change-->
+            <div class="form-group change-of-actors">
+                <label for="actors-change">Actors:</label>
+                <input class="form-control" id="actors-change" placeholder="Enter new actors">
+            </div>
+            <!--buttons to delete or submit info-->
+            <div>
+                <a href="#" class="btn btn-primary px-5">Submit</a>
+                <a href="#" class="btn btn-danger ml-5 px-2">Delete</a>
+            </div>
         </div>
     </div>
 </div>
@@ -107,7 +118,9 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 <!--custom Js-->
-<script src="protected-file.js"></script>
-<script src="movie-script.js"></script>
+<script src="../js/protected-file.js"></script>
+<script src="../js/movie-script.js"></script>
+<script src="../js/users-input.js"></script>
+<script src="../js/button-functionality.js"></script>
 </body>
 </html>
