@@ -1,6 +1,6 @@
 //TODO: Create function to get data from database
 function getAllMovies() {
-    fetch('https://foremost-fluttering-carol.glitch.me/movies')
+    fetch('https://young-alert-aries.glitch.me/movies')
         .then(res => res.json()
             .then(movies => console.log(movies)))
 }
