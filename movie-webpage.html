@@ -11,6 +11,94 @@
     <link rel="stylesheet" href="movie-styling.css">
 </head>
 <body>
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!--name of website-->
+    <a class="navbar-brand" href="#">D&S Movies</a>
+    <!--when webpage is collapsed button will appear instead-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Nav bar items-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li>
+                <a class="nav-link" href="#">Add your own movie</a>
+            </li>
+        </ul>
+        <!--Search form for movies-->
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search through movies" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!--card to display movies info-->
+<div class="container-fluid d-flex">
+    <div class="movie-cards"></div>
+    <!--    <div class="card" style="width: 18rem;">-->
+    <!--        <div class="card-body">-->
+    <!--            <h5 class="card-title text-center movie-title">Movie Title</h5>-->
+    <!--            <div class="poster">Poster: google.com</div>-->
+    <!--            <p class="rating">Rating: 5/5</p>-->
+    <!--            <p class="year">Year: 2020</p>-->
+    <!--            <p class="genre">Genre: asdf</p>-->
+    <!--            <p class="director">Director: asdf</p>-->
+    <!--            <p class="plot">Plot: asdf</p>-->
+    <!--            <p class="actors">Actors: asdf</p>-->
+    <!--            <a href="#" class="btn btn-primary">Edit This movie</a>-->
+    <!--            <a href="#" class="btn btn-danger hidden">Delete</a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <!--title change-->
+            <div class="form-group change-of-title">
+                <label for="title-change">Title:</label>
+                <input class="form-control" id="title-change" aria-describedby="emailHelp"
+                       placeholder="Enter New Title">
+            </div>
+            <!--poster change-->
+            <div class="form-group change-of-poster">
+                <label for="poster-change">poster:</label>
+                <input class="form-control" id="poster-change" aria-describedby="emailHelp"
+                       placeholder="Enter new poster">
+            </div>
+            <!--rating change-->
+            <div class="form-group change-of-rating">
+                <label for="rating-change">Rating:</label>
+                <input class="form-control" id="rating-change" aria-describedby="emailHelp"
+                       placeholder="Enter new rating">
+            </div>
+            <!--year change-->
+            <div class="form-group change-of-year">
+                <label for="year-change">year:</label>
+                <input class="form-control" id="year-change" aria-describedby="emailHelp"
+                       placeholder="Enter New Title">
+            </div>
+            <!--genre change-->
+            <div class="form-group change-of-genre">
+                <label>genre:</label>
+                <div class="list-of-genres"></div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="drama" value="option1">
+                    <label class="form-check-label" for="drama">Drama</label>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
 <!--jquery before bootstrap-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -19,6 +107,7 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 <!--custom Js-->
+<script src="protected-file.js"></script>
 <script src="movie-script.js"></script>
 </body>
 </html>

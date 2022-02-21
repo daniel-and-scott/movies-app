@@ -1,6 +1,7 @@
+
 //TODO: Create function to get data from database
 function getAllMovies() {
-    fetch('https://young-alert-aries.glitch.me/movies')
+    fetch(dataBaseUrl)
         .then(res => res.json()
             .then(movies => console.log(movies)))
 }
@@ -9,45 +10,31 @@ getAllMovies()
 
 //TODO: Create function that takes the title and displays it
 
-let movieTitles = function getTheTitle() {
-    fetch('https://foremost-fluttering-carol.glitch.me/movies')
+function getTheTitle() {
+    fetch(dataBaseUrl)
         .then(res => res.json()
-            .then(title => console.log(title[0].title)))
+            .then(title => console.log(title[1].title)))
 }
 
-console.log(movieTitles);
+
 
 //TODO: Add movie to list
-
-
-function addMoviesToList() {
-
-    const addMovies = {
-        title: 'asdf',
-        rating: 'asdf',
-        poster: 'asdf',
-        year: 'asdf',
-        genre: 'asdf',
-        director: 'asdf',
-        plot: 'asdf',
-        actors: 'asdf',
-    };
+function addMoviesToList(newMoviesToAdd) {
 
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(addMovies)
+        body: JSON.stringify(newMoviesToAdd)
     }
 
-    fetch("https://foremost-fluttering-carol.glitch.me/movies", options)
+    fetch(dataBaseUrl, options)
         .then(res => res.json()
             .then(info => console.log(info)))
 }
 
 //TODO: Create function that will delete previous inputs
-
 function deleteMoviesFromList(id) {
 
     const deleteRequest = {
@@ -57,8 +44,25 @@ function deleteMoviesFromList(id) {
         }
     }
 
-    fetch(`https://foremost-fluttering-carol.glitch.me/movies/${id}`, deleteRequest)
+    fetch(`${dataBaseUrl}/${id}`, deleteRequest)
         .then(res => res.json()
-            .then(info => console.log(info)));
+            .catch(err => console.log(err)));
 }
-deleteMoviesFromList(16)
+
+//TODO: Create function that will change information within the API
+
+function changeInformation(changeExistingInfo ,id) {
+
+    const putRequest = {
+        method: "PUT",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(changeExistingInfo)
+    }
+    fetch(`${dataBaseUrl}/${id}`, putRequest)
+        .then(res => res.json()
+        .then(info => console.log(info)))
+
+}
+
