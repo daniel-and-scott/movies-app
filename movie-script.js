@@ -1,6 +1,6 @@
 //TODO: Create function to get data from database
 function getAllMovies() {
-    fetch('https://young-alert-aries.glitch.me/movies')
+    fetch('https://foremost-fluttering-carol.glitch.me/movies')
         .then(res => res.json()
             .then(movies => console.log(movies)))
 }
@@ -15,7 +15,7 @@ let movieTitles = function getTheTitle() {
             .then(title => console.log(title[0].title)))
 }
 
-console.log(movieTitles);
+movieTitles()
 
 //TODO: Add movie to list
 
@@ -48,13 +48,17 @@ function addMoviesToList() {
 
 //TODO: Create function that will delete previous inputs
 
-function deleteMoviesFromList(movies, id) {
-    const deleteMovie = {
-        method: 'DELETE',
+function deleteMoviesFromList(id) {
+
+    const deleteRequest = {
+        method: "DELETE",
+        headers: {
+            "Content-type": "application/json",
+        }
     }
-    fetch(`https://foremost-fluttering-carol.glitch.me/movies/${id}`, {method: 'DELETE'})
+
+    fetch(`https://foremost-fluttering-carol.glitch.me/movies/${id}`, deleteRequest)
         .then(res => res.json()
             .then(info => console.log(info)));
 }
-// Daniel, this function is still not working like I hoped it would.
-console.log(deleteMoviesFromList(movieTitles, 255));
+deleteMoviesFromList(16)
