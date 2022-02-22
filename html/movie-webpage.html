@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="../css/movie-styling.css">
 </head>
 <body>
-
 <!--navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!--name of website-->
     <a class="navbar-brand" href="#">D&S Movies</a>
     <!--when webpage is collapsed button will appear instead-->
@@ -33,7 +32,8 @@
         </ul>
         <!--Search form for movies-->
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search through movies" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search through movies"
+                   aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
@@ -43,8 +43,8 @@
 <div class="container-fluid d-flex movie-information mt-4">
     <div class="movie-cards"></div>
     <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            <h5 class="card-title text-center movie-title">Movie Title</h5>
+        <div class="card-header bg-dark">
+            <h5 class="card-title text-center movie-title text-white">Movie Title</h5>
         </div>
         <div class="card-body">
             <div class="poster card-text mb-3">Poster:</div>
@@ -135,5 +135,6 @@
 <script src="../js/movie-script.js"></script>
 <script src="../js/users-input.js"></script>
 <script src="../js/button-functionality.js"></script>
+
 </body>
 </html>
