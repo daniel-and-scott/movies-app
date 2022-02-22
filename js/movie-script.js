@@ -51,10 +51,13 @@ function deleteMoviesFromList(id) {
 function changeInformation(id) {
     const change = {
         title: $('#title-change').val(),
-        rating: '5',
-        poster: 'asdf',
-        year: '2020',
-        genre: 'action',
+        rating: $('#rating-change').val(),
+        poster: $('#poster-change').val(),
+        year: $('#year-change').val(),
+        genre: $('.list-of-genres').val(),
+        director: $('#director-change').val(),
+        plot: $('#plot-change').val(),
+        actors: $('#actors-change').val(),
     }
     const putRequest = {
         method: "PUT",
