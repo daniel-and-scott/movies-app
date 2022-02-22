@@ -52,22 +52,41 @@ function deleteMoviesFromList(id) {
 }
 
 //TODO: Create function that will change information within the API
-// var info = {
-//     title: 'ASDF'
-// }
-//
-// function changeInformation(change ,id) {
-//
-//     const putRequest = {
-//         method: "PUT",
-//         headers: {
-//             "Content-type": "application/json",
-//         }
-//     }
-//     fetch(`${dataBaseUrl}/${id}`, putRequest)
-//         .then(res => res.json()
-//         .then(info => console.log(info)))
-//
-// }
-//
-// changeInformation(info,2)
+
+function changeInformation(id) {
+    const change = {
+        title: $('#title-change').val(),
+        rating: $('#rating-change').val(),
+        poster: $('#poster-change').val(),
+        year: $('#year-change').val(),
+        genre: $('.list-of-genres').val(),
+        director: $('#director-change').val(),
+        plot: $('#plot-change').val(),
+        actors: $('#actors-change').val(),
+    }
+    const putRequest = {
+        method: "PUT",
+        headers: {
+            "Content-type": "application/json",
+        },
+        body: JSON.stringify(change)
+    }
+
+    fetch(`${dataBaseUrl}/${id}`, putRequest)
+        .then(res => res.json()
+            .then(info => console.log(info)))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
