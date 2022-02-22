@@ -13,9 +13,49 @@ function getTheTitle(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#title-change').val(title.title)))
-
 }
 
+function getThePoster (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('#poster-change').val(title.poster)))
+}
+
+function getTheRating (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('#rating-change').val(title.rating)))
+}
+
+function getTheYear (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('#year-change').val(title.year)))
+}
+
+function getTheGenres (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('.list-of-genres').val(title.genre)))
+}
+
+function getTheDirector (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('#director-change').val(title.director)))
+}
+
+function getThePlot (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('#plot-change').val(title.plot)))
+}
+
+function getTheActors (id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
+        .then(res => res.json()
+            .then(title => $('#actors-change').val(title.actors)))
+}
 
 //TODO: Add movie to list
 
