@@ -33,6 +33,13 @@ $(document).on('click', '.edit-information-btn', function () {
     let dataId = $(this).data('id')
     $('.edit-btn').attr('data-id', dataId)
     getTheTitle(dataId);
+    getThePoster(dataId);
+    getTheRating(dataId);
+    getTheYear(dataId);
+    getTheGenres(dataId);
+    getTheDirector(dataId);
+    getThePlot(dataId);
+    getTheActors(dataId);
 });
 
 $('.edit-btn').click(function () {
