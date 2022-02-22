@@ -1,0 +1,16 @@
+TODO:
+
+
+2. display loading message while the request for movies is being loaded
+
+
+
+
+bonuses-
+1. animation for loading
+2. disabled attribute to buttoms while request is being submitted
+3. use modals
+4. genre property to every movie
+5. sort movies by rating, title, or genre
+6. **add api like OMBD to include extra info**
+
