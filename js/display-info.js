@@ -30,6 +30,8 @@ function showMovies(data) {
 }
 
 $(document).on('click', '.edit-information-btn', function () {
-    $('.edit-submit-button').attr( this, 'data-id')
+    let dataId = $(this).data('id')
+    $('.edit-submit-button').attr('data-id', dataId )
+
 
 })
