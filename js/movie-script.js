@@ -7,7 +7,7 @@ function getAllMovies() {
 
 getAllMovies()
 
-//TODO: Create function that takes the title and displays it
+//TODO: Create function that takes the information from server and displays it in text field
 
 function getTheTitle(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
@@ -15,69 +15,69 @@ function getTheTitle(id) {
             .then(title => $('#title-change').val(title.title)))
 }
 
-function getThePoster (id) {
+function getThePoster(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#poster-change').val(title.poster)))
 }
 
-function getTheRating (id) {
+function getTheRating(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#rating-change').val(title.rating)))
 }
 
-function getTheYear (id) {
+function getTheYear(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#year-change').val(title.year)))
 }
 
-function getTheGenres (id) {
+function getTheGenres(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('.list-of-genres').val(title.genre)))
 }
 
-function getTheDirector (id) {
+function getTheDirector(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#director-change').val(title.director)))
 }
 
-function getThePlot (id) {
+function getThePlot(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#plot-change').val(title.plot)))
 }
 
-function getTheActors (id) {
+function getTheActors(id) {
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
             .then(title => $('#actors-change').val(title.actors)))
 }
 
 //TODO: Add movie to list
-
-
-function addMoviesToList(newMoviesToAdd) {
+function addMoviesToList(newMovieToAdd) {
 
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newMoviesToAdd)
+        body: JSON.stringify(newMovieToAdd)
     }
 
     fetch(dataBaseUrl, options)
         .then(res => res.json()
-            .then(info => console.log(info)))
+            .then(()=>{
+                $('#movie-cards').html(' ')
+                getAllMovies()
+            }));
 }
 
 //TODO: Create function that will delete previous inputs
-
-function deleteMoviesFromList(id) {
+function deleteMovieFromList(id) {
 
     const deleteRequest = {
         method: "DELETE",
@@ -88,17 +88,17 @@ function deleteMoviesFromList(id) {
 
     fetch(`${dataBaseUrl}/${id}`, deleteRequest)
         .then(res => res.json()
-            .catch(err => console.log(err)));
+            .then(()=>{
+                $('#movie-cards').html(' ')
+                getAllMovies()
+        }));
 }
 
 //TODO: Create function that will change information within the API
-// getTheTitle(3)
-
-
 function changeInformation(id) {
 
     var fav = [];
-    $.each($("input[name='genres']:checked"), function(){
+    $.each($("input[name='genres']:checked"), function () {
         fav.push($(this).val());
     });
 
@@ -120,7 +120,6 @@ function changeInformation(id) {
         },
         body: JSON.stringify(change)
     }
-console.log()
 
     fetch(`${dataBaseUrl}/${id}`, putRequest)
         .then(res => res.json()
