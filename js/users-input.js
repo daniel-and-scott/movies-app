@@ -11,12 +11,11 @@ function pushGenresToCard() {
         //language=html
         output =
             `<div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="${genre.toLowerCase()}" 
+                <input name="genres" class="form-check-input" type="checkbox" id="${genre.toLowerCase()}" 
                        value="${genre.toLowerCase()}">
                 <label class="form-check-label" for="${genre.toLowerCase()}">${genre}</label>
             </div>`
         genreListAppended.append(output)
-
     });
 }
 

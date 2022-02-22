@@ -36,8 +36,8 @@
     </div>
 </nav>
 <!--card to display movies info-->
-<div class="container-fluid d-flex movie-information mt-4">
-    <div id="movie-cards">
+<div class="d-flex mt-4 movie-information">
+    <div id="movie-cards" class="d-flex">
 
     </div>
 </div>
@@ -73,7 +73,9 @@
                 <!--genre change-->
                 <div class="form-group change-of-genre d-inline">
                     <label class="blockquote float-left pl-2">Genres:</label>
-                    <div class="list-of-genres"></div>
+                    <div class="form-group list-of-genres">
+
+                    </div>
                 </div>
                 <!--director change-->
                 <div class="form-group change-of-director mt-2">
@@ -93,7 +95,7 @@
                 <!--buttons to delete or submit info-->
                 <div class="card-footer">
                     <div class="clearfix m-2">
-                        <a href="#" class="btn btn-outline-success float-right edit-btn">Submit</a>
+                        <a href="#" class="btn btn-outline-success float-right edit-btn" data-dismiss="modal" >Submit</a>
                         <a href="#" class="btn btn-outline-danger float-left delete-btn">Delete</a>
                     </div>
                 </div>
