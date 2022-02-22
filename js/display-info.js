@@ -31,7 +31,5 @@ function showMovies(data) {
 
 $(document).on('click', '.edit-information-btn', function () {
     let dataId = $(this).data('id')
-    $('.edit-submit-button').attr('data-id', dataId )
-
-
+    $('.edit-btn').attr('data-id', dataId )
 })
