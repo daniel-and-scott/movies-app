@@ -58,12 +58,18 @@ function deleteMoviesFromList(id) {
 
 function changeInformation(id) {
 
+    var fav = [];
+    $.each($("input[name='genres']:checked"), function(){
+        fav.push($(this).val());
+    });
+
+
     const change = {
         title: $('#title-change').val(),
         rating: $('#rating-change').val(),
         poster: $('#poster-change').val(),
         year: $('#year-change').val(),
-        genre: $('.list-of-genres').val(),
+        genre: fav,
         director: $('#director-change').val(),
         plot: $('#plot-change').val(),
         actors: $('#actors-change').val(),
@@ -75,6 +81,7 @@ function changeInformation(id) {
         },
         body: JSON.stringify(change)
     }
+console.log()
 
     fetch(`${dataBaseUrl}/${id}`, putRequest)
         .then(res => res.json()
