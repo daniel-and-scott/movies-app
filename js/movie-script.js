@@ -17,7 +17,6 @@ function getTheTitle(id) {
 }
 
 
-
 //TODO: Add movie to list
 
 
