@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li>
-                <a class="nav-link" href="#">Add your own movie</a>
+                <a class="nav-link" data-toggle="modal" data-target="#add-movie" >Add your own movie</a>
             </li>
         </ul>
         <!--Search form for movies-->
@@ -35,27 +35,10 @@
         </form>
     </div>
 </nav>
-
 <!--card to display movies info-->
 <div class="container-fluid d-flex movie-information mt-4">
-    <div class="movie-cards"></div>
-    <div class="card" style="width: 18rem;">
-        <div class="card-header bg-dark">
-            <h5 class="card-title text-center movie-title text-white">Movie Title</h5>
-        </div>
-        <div class="card-body">
-            <div class="poster card-text mb-3">Poster:</div>
-            <p class="rating card-text">Rating:</p>
-            <p class="year card-text">Year:</p>
-            <p class="genre card-text">Genre:</p>
-            <p class="director card-text">Director:</p>
-            <p class="plot card-text">Plot:</p>
-            <p class="actors card-text">Actors:</p>
-        </div>
-        <div class="card-footer">
-            <a href="#" class="btn btn-outline-success float-right edit-information-btn" data-toggle="modal"
-               data-target="#editInfo">Edit This movie</a>
-        </div>
+    <div id="movie-cards">
+
     </div>
 </div>
 <!--Modal window to display editing information-->
@@ -119,6 +102,64 @@
     </div>
 </div>
 
+<div class="modal" id="add-movie">
+    <div class="modal-dialog">
+        <div class="modal-content w-100">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title">Add Your Own</h5>
+                <button class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="card border-0 text-center mt-3">
+                <!--title change-->
+                <div class="form-group change-of-title">
+                    <label for="title-add" class="blockquote float-left pl-2">Title:</label>
+                    <input class="form-control w-75 d-inline" id="title-add" placeholder="Enter new title">
+                </div>
+                <!--poster change-->
+                <div class="form-group change-of-poster">
+                    <label for="poster-add" class="blockquote float-left pl-2">Poster:</label>
+                    <input class="form-control w-75 d-inline" id="poster-add" placeholder="Enter new poster">
+                </div>
+                <!--rating change-->
+                <div class="form-group change-of-rating">
+                    <label for="rating-add" class="blockquote float-left pl-2">Rating:</label>
+                    <input class="form-control w-75 d-inline" id="rating-add" placeholder="Enter new rating">
+                </div>
+                <!--year change-->
+                <div class="form-group change-of-year">
+                    <label for="year-add" class="blockquote float-left pl-2">Year:</label>
+                    <input class="form-control w-75 d-inline" id="year-add" placeholder="Enter year of release">
+                </div>
+                <!--genre change-->
+                <div class="form-group add-genre d-inline">
+                    <label class="blockquote float-left pl-2">Genres:</label>
+                    <div class="list-of-genres"></div>
+                </div>
+                <!--director change-->
+                <div class="form-group change-of-director mt-2">
+                    <label for="director-add" class="blockquote float-left pl-2">Director:</label>
+                    <input class="form-control w-75 d-inline" id="director-add" placeholder="Enter new director">
+                </div>
+                <!--plot change-->
+                <div class="form-group change-of-plot">
+                    <label for="plot-add" class="blockquote float-left pl-2">Plot:</label>
+                    <input class="form-control w-75 d-inline" id="plot-add" placeholder="Enter new plot">
+                </div>
+                <!--actors change-->
+                <div class="form-group change-of-actors">
+                    <label for="actors-add" class="blockquote float-left pl-2">Actors:</label>
+                    <input class="form-control w-75 d-inline" id="actors-add" placeholder="Enter new actors">
+                </div>
+                <!--buttons to delete or submit info-->
+                <div class="card-footer">
+                    <div class="clearfix m-2">
+                        <a href="#" class="btn btn-outline-success float-righ">Submit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--jquery before bootstrap-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -132,6 +173,6 @@
 <script src="../js/movie-script.js"></script>
 <script src="../js/users-input.js"></script>
 <script src="../js/button-functionality.js"></script>
-
+<script src="../js/display-info.js"></script>
 </body>
 </html>
