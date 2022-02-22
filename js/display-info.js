@@ -32,6 +32,7 @@ function showMovies(data) {
 $(document).on('click', '.edit-information-btn', function () {
     let dataId = $(this).data('id')
     $('.edit-btn').attr('data-id', dataId)
+    getTheTitle(dataId);
 });
 
 $('.edit-btn').click(function () {

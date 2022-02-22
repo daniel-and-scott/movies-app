@@ -9,13 +9,14 @@ getAllMovies()
 
 //TODO: Create function that takes the title and displays it
 
-function getTheTitle() {
-    fetch(dataBaseUrl)
+function getTheTitle(id) {
+    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
-            .then(title => console.log(title[0].title)))
+            .then(title => $('#title-change').val(title.title)))
+
 }
 
-getTheTitle()
+
 
 //TODO: Add movie to list
 
@@ -52,8 +53,11 @@ function deleteMoviesFromList(id) {
 }
 
 //TODO: Create function that will change information within the API
+// getTheTitle(3)
+
 
 function changeInformation(id) {
+
     const change = {
         title: $('#title-change').val(),
         rating: $('#rating-change').val(),
@@ -74,7 +78,10 @@ function changeInformation(id) {
 
     fetch(`${dataBaseUrl}/${id}`, putRequest)
         .then(res => res.json()
-            .then(info => console.log(info)))
+            .then(() => {
+                $('#movie-cards').html(" ")
+                getAllMovies()
+            }));
 }
 
 
