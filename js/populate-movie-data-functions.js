@@ -194,12 +194,13 @@ function changeInformation(id) {
                 getAllMovies()
             }));
 }
-
+// movie key to a file with git ignore?
 const MOVIE_API_KEY = `3c1f44b9`
-let test = 'scream';
-//
+let test = 'captain america: the first avenger';
+// searches for movies based on exact user input. ISSUE?: only returns one movie that matches search results and not an array of possible matches
 function searchMovieByTitle(userInput) {
-    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    let urlAppender = userInput.split().join('+');
+    let OMDB = `http://www.omdbapi.com/?t=${urlAppender}&apikey=${MOVIE_API_KEY}`;
     fetch(OMDB)
         .then(res => res.json()
             .then(data => console.log(data)));
