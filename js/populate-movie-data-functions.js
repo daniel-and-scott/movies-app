@@ -195,15 +195,70 @@ function changeInformation(id) {
             }));
 }
 
+const MOVIE_API_KEY = `3c1f44b9`
+let test = 'scream';
+//
+function searchMovieByTitle(userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => console.log(data)));
+}
 
+searchMovieByTitle(test);
 
+function returnTheSearchedTitle (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Title)));
+}
 
+function returnTheSearchedPoster (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Poster)));
+}
 
+function returnTheSearchedRating (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.imdbRating)));
+}
 
+function returnTheSearchedYear (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Year)));
+}
 
+function returnTheSearchedGenres (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Genre)));
+}
 
+function returnTheSearchedDirector (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Director)));
+}
 
+function returnTheSearchedPlot (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Plot)));
+}
 
-
-
-
+function returnTheSearchedActors (userInput) {
+    let OMDB = `http://www.omdbapi.com/?t=${userInput}&apikey=${MOVIE_API_KEY}`;
+    fetch(OMDB)
+        .then(res => res.json()
+            .then(data => $('#').val(data.Actors)));
+}
