@@ -97,9 +97,9 @@ function deleteMovieFromList(id) {
 //TODO: Create function that will change information within the API
 function changeInformation(id) {
 
-    var fav = [];
+    var genreArray = [];
     $.each($("input[name='genres']:checked"), function () {
-        fav.push($(this).val());
+        genreArray.push($(this).val());
     });
 
 
@@ -108,7 +108,7 @@ function changeInformation(id) {
         rating: $('#rating-change').val(),
         poster: $('#poster-change').val(),
         year: $('#year-change').val(),
-        genre: fav,
+        genre: genreArray,
         director: $('#director-change').val(),
         plot: $('#plot-change').val(),
         actors: $('#actors-change').val(),

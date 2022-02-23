@@ -6,12 +6,15 @@ function showMovies(data) {
     data.forEach((id) => {
         //language=html
         allMovies = `
-            <div class="card d-flex ml-4" style="width: 18rem;">
+            <div class="card" style="width: 21rem;">
                 <div class="card-header bg-dark">
                     <h5 class="card-title text-center movie-title text-white">${id.title}</h5>
                 </div>
                 <div class="card-body">
-                    <div class="poster card-text mb-3">Poster: ${id.poster}</div>
+                    <div class="container mb-3">
+                        <div class="poster d-flex justify-content-center"><img id="poster-img" src="${id.poster}">
+                        </div>
+                    </div>
                     <p class="rating card-text">Rating: ${id.rating}</p>
                     <p class="year card-text">Year: ${id.year}</p>
                     <p class="genre card-text">Genre: ${id.genre}</p>
@@ -24,10 +27,12 @@ function showMovies(data) {
                        data-toggle="modal"
                        data-target="#editInfo">Edit This movie</a>
                 </div>
-            </div>`
+            </div>
+        `
         showMovieInfo.append(allMovies)
     });
 }
+
 // when button is pressed it will display the information in the form as well as give an attr to submit button
 $(document).on('click', '.edit-information-btn', function () {
     let dataId = $(this).data('id')
@@ -56,10 +61,10 @@ $(document).on('click', '.edit-information-btn', function () {
 
 
 // if delete button is clicked will delete all data entry for that card
-$('.delete-btn').click(function (){
+$('.delete-btn').click(function () {
     let id = $(this).data('id');
     let deleteConfirmed = confirm("are you sure you want to delete this data entry?")
-    if (deleteConfirmed){
+    if (deleteConfirmed) {
         deleteMovieFromList(id)
         alert("Movie data entry has been successfully completed.")
     } else {
