@@ -1,5 +1,7 @@
 const showMovieInfo = $('#movie-cards')
+const genreListAppended = $('.list-of-genres')
 
+//TODO: show movie function that will create cards for each movie that is in the json server
 function showMovies(data) {
     let allMovies = '';
     showMovieInfo.empty()
@@ -33,61 +35,23 @@ function showMovies(data) {
     });
 }
 
-// when button is pressed it will display the information in the form as well as give an attr to submit button
-$(document).on('click', '.edit-information-btn', function () {
-    let dataId = $(this).data('id')
-    $('.edit-btn').attr('data-id', dataId)
-    getTheTitle(dataId);
-    getThePoster(dataId);
-    getTheRating(dataId);
-    getTheYear(dataId);
-    getTheGenres(dataId);
-    getTheDirector(dataId);
-    getThePlot(dataId);
-    getTheActors(dataId);
-});
+pushGenresToCard()
 
-// when button is pressed it will send date to the server and change the users input
-$('.edit-btn').click(function () {
-    let id = $(this).data('id');
-    changeInformation(id);
-});
+//TODO: create function that will add each genre to the form when editing movie info
+function pushGenresToCard() {
+    const allMovieGenres = ['Drama', 'Action', 'Horror', 'Comedy', 'Thriller', 'Romance', 'Western', 'Mystery', 'Fantasy', 'Fiction',
+        'Sci-Fi', 'War', 'Documentary'];
+    let output = '';
 
-//when button is pressed it will pass the information of the card to the button and perform a data delete
-$(document).on('click', '.edit-information-btn', function () {
-    let dataId = $(this).data('id')
-    $('.delete-btn').attr('data-id', dataId)
-});
-
-
-// if delete button is clicked will delete all data entry for that card
-$('.delete-btn').click(function () {
-    let id = $(this).data('id');
-    let deleteConfirmed = confirm("are you sure you want to delete this data entry?")
-    if (deleteConfirmed) {
-        deleteMovieFromList(id)
-        alert("Movie data entry has been successfully completed.")
-    } else {
-        alert("Action canceled")
-    }
-});
-
-
-// when button is pressed it will send date to the server and change the users input
-$('.add-movie-btn').click(function () {
-    var fav = [];
-    $.each($("input[name='genres']:checked"), function () {
-        fav.push($(this).val());
+    allMovieGenres.forEach(genre => {
+        //language=html
+        output =
+            `
+                <div class="form-check form-check-inline">
+                    <input name="genres" class="form-check-input" type="checkbox" id="${genre.toLowerCase()}"
+                           value="${genre}">
+                    <label class="form-check-label" for="${genre.toLowerCase()}">${genre}</label>
+                </div>`
+        genreListAppended.append(output)
     });
-    const newMovieToAdd = {
-        title: $('#title-add').val(),
-        rating: $('#rating-add').val(),
-        poster: $('#poster-add').val(),
-        year: $('#year-add').val(),
-        genre: fav,
-        director: $('#director-add').val(),
-        plot: $('#plot-add').val(),
-        actors: $('#actors-add').val(),
-    }
-    addMoviesToList(newMovieToAdd);
-});
+}

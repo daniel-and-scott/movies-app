@@ -35,14 +35,11 @@
                         Sort by
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">title</a>
-                        <a class="dropdown-item" href="#">genre</a>
-                        <a class="dropdown-item" href="#">year</a>
-                        <a class="dropdown-item" href="#">rating</a>
-                        <a class="dropdown-item" href="#">year</a>
-                        <a class="dropdown-item" href="#">director</a>
-                        <a class="dropdown-item" href="#">plot</a>
-                        <a class="dropdown-item" href="#">actor</a>
+                        <a class="dropdown-item title-dropdown" href="#">title</a>
+                        <a class="dropdown-item genre-dropdown" href="#">genre</a>
+                        <a class="dropdown-item rating-dropdown" href="#">rating</a>
+
+
                     </div>
                 </div>
             </li>
@@ -74,6 +71,7 @@
             <div class="modal-header bg-dark text-white w-100">
                 <h5 class="modal-title">Edit Movie Information</h5>
                 <button class="close text-white" data-dismiss="modal">&times;</button>
+                <input type="hidden" id="form-id">
             </div>
             <!--title change-->
             <div class="form-group change-of-title pt-2 pl-1 pr-1">
@@ -278,8 +276,7 @@
         crossorigin="anonymous"></script>
 <!--custom Js-->
 <script src="../js/protected-file.js"></script>
-<script src="../js/movie-script.js"></script>
-<script src="../js/users-input.js"></script>
+<script src="../js/populate-movie-data-functions.js"></script>
 <script src="../js/button-functionality.js"></script>
 <script src="../js/display-info.js"></script>
 </body>
