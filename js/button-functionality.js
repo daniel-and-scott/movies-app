@@ -9,8 +9,14 @@ $(document).on('click', '.edit-information-btn', function () {
 //TODO: when button is pressed it will send data to the server and change the users input
 $('.edit-btn').click(function () {
     let id = $('#form-id').val();
-    console.log(id)
-    changeInformation(id);
+    $(this).attr("disabled", true);
+    $.ajax('http://localhost:63342/movies-app/html/movie-webpage.html?_ijt=94tos7q7qdi9crh395kphu7m4n&_ij_reload=RELOAD_ON_SAVE#').done(function(data, status, jqXhr) {
+        console.log(id)
+        changeInformation(id);
+        $(this).attr("disabled", false);
+    }).fail(function (jqXhr, status, error) {
+        alert('Your movie could not be edited!');
+    });
 });
 
 //TODO: when button is pressed it will pass the information of the card to the button and perform a data delete
@@ -22,35 +28,50 @@ $(document).on('click', '.edit-information-btn', function () {
 
 //TODO: if delete button is clicked will delete all data entry for that card
 $('.delete-btn').click(function () {
+
     let id = $('#form-id').val();
     let deleteConfirmed = confirm("are you sure you want to delete this data entry?")
-    if (deleteConfirmed) {
-        deleteMovieFromList(id)
-        alert("Movie data entry has been successfully completed.")
-    } else {
-        alert("Action canceled")
-    }
-    getAllMovies()
+
+    $(this).attr("disabled", true);
+    $.ajax('http://localhost:63342/movies-app/html/movie-webpage.html?_ijt=94tos7q7qdi9crh395kphu7m4n&_ij_reload=RELOAD_ON_SAVE#').done(function(data, status, jqXhr) {
+        if (deleteConfirmed) {
+            deleteMovieFromList(id)
+            alert("Movie data entry has been successfully completed.")
+            getAllMovies()
+        } else {
+            alert("Action canceled")
+        }
+        $(this).attr("disabled", false);
+    }).fail(function (jqXhr, status, error) {
+        alert('Your movie could not be deleted!');
+    });
+
 });
 
 
 //TODO: when button is pressed it will send date to the server and change the users input
 $('.add-movie-btn').click(function () {
-    var fav = [];
-    $.each($("input[name='genres']:checked"), function () {
-        fav.push($(this).val());
+    $(this).attr("disabled", true);
+    $.ajax('http://localhost:63342/movies-app/html/movie-webpage.html?_ijt=94tos7q7qdi9crh395kphu7m4n&_ij_reload=RELOAD_ON_SAVE#').done(function(data, status, jqXhr) {
+        var fav = [];
+        $.each($("input[name='genres']:checked"), function () {
+            fav.push($(this).val());
+        });
+        const newMovieToAdd = {
+            title: $('#title-add').val(),
+            rating: $('#rating-add').val(),
+            poster: $('#poster-add').val(),
+            year: $('#year-add').val(),
+            genre: fav,
+            director: $('#director-add').val(),
+            plot: $('#plot-add').val(),
+            actors: $('#actors-add').val(),
+        }
+        addMoviesToList(newMovieToAdd);
+        $(this).attr("disabled", false);
+    }).fail(function (jqXhr, status, error) {
+        alert('Your movie could not be added!');
     });
-    const newMovieToAdd = {
-        title: $('#title-add').val(),
-        rating: $('#rating-add').val(),
-        poster: $('#poster-add').val(),
-        year: $('#year-add').val(),
-        genre: fav,
-        director: $('#director-add').val(),
-        plot: $('#plot-add').val(),
-        actors: $('#actors-add').val(),
-    }
-    addMoviesToList(newMovieToAdd);
 });
 
 
