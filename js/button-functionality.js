@@ -58,14 +58,18 @@ $('.add-movie-btn').click(function () {
     }
     addMoviesToList(newMovieToAdd);
 });
+
+
 //TODO: functionality of drop down menu that sorts by title
 $('.title-dropdown').click(() => {
     sortTitle()
 });
+
 //TODO: functionality of drop down menu that sorts by genre
 $('.genre-dropdown').click(() => {
     sortGenre()
 });
+
 //TODO: functionality of drop down menu that sorts by rating
 $('.rating-dropdown').click(() => {
     sortRating()
