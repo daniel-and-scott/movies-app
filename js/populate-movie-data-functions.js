@@ -5,14 +5,14 @@ function getAllMovies() {
     //language=html
     let loading = `
         <div class="ring">Loading
-            <span></span>
+            <span class="ring-animation"></span>
         </div>`;
     $('#movie-cards').html(loading)
 
     fetch(dataBaseUrl)
         .then(res => res.json()
             .then(movies => showMovies(movies))
-            .then(() => $('body').css('background-color', '#fff')))
+            .then(() => $('body').css('background-color', '#708090')))
 }
 
 //TODO: function to sort title on the web browser

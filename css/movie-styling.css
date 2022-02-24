@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Shadows Into Light', cursive;
+    src: url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -6,6 +12,7 @@
     justify-content: center;
 
 }
+
 #poster-img {
     height: 250px;
     width: 300px;
@@ -15,18 +22,25 @@
 #add-movie-link {
     cursor: pointer;
 }
-.container-fluid{
+
+.container-fluid {
     margin: 0;
     padding: 0;
 }
+
 .card {
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 20px black;
     margin: 5px;
+    border-color: black;
+    background-color: #C7EBF0;
 }
-.navbar-brand{
+
+.card-footer {
+    background-color: #332E3C;
 }
+
 .website-name {
-    background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+    background-image: url(https://media.giphy.com/media/l378oRMuApI3a35Cg/giphy.gif);
     background-size: cover;
     color: transparent;
     -moz-background-clip: text;
@@ -39,15 +53,21 @@
     display: flex;
 }
 
-.modal-title {
-
+.movie-title {
+    text-shadow: 2px 2px 3px whitesmoke;
 }
 
+.card-header {
+    background-image: url(https://media.giphy.com/media/RMNzkNDJ3zx4UtJayd/giphy.gif) !important;
+    background-size: cover !important;
+}
 
 body {
-    margin: 0;
-    padding: 0;
+    width: 100vw;
     background: #262626;
+    overflow-x: hidden;
+    background-size: cover;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 
@@ -86,7 +106,7 @@ body {
     animation: animateC 2s linear infinite;
 }
 
-span {
+.ring-animation {
     display: block;
     position: absolute;
     top: calc(50% - 2px);
@@ -98,7 +118,7 @@ span {
     animation: animate 2s linear infinite;
 }
 
-span:before {
+.ring-animation:before {
     content: '';
     position: absolute;
     width: 16px;
