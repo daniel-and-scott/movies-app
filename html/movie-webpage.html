@@ -13,9 +13,13 @@
 
 <body>
 <!--navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <!--name of website-->
-    <a class="navbar-brand" href="#">D&S Movies</a>
+    <div class="title">
+        <a class="navbar-brand" href="#">
+            <div class="website-name">D&S Movies</div>
+        </a>
+    </div>
     <!--when webpage is collapsed button will appear instead-->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +35,8 @@
             </li>
             <li>
                 <div class="dropdown mr-auto pl-2">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-expanded="false">
                         Sort by
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -50,8 +55,10 @@
         </ul>
         <!--Search form for movies-->
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2 search-movie-input" type="search" placeholder="Search through movies">
-            <button class="btn btn-outline-success my-2 my-sm-0 search-movie-submit" type="submit">Search</button>
+            <input class="form-control mr-sm-2" id="search-movie-input" type="search"
+                   placeholder="Search through movies">
+            <a href="#" class="btn btn-outline-success float-right search-information-btn" data-toggle="modal"
+               data-target="#search-movie">Search Movies</a>
         </form>
     </div>
 </nav>
@@ -117,7 +124,7 @@
             <div class="container">
                 <div class="form-group change-of-genre bg-light border rounded justify-content-center align-item-center ">
                     <label class="form-group-text">Genres:</label>
-                    <div class="form-group list-of-genres ml-3"></div>
+                    <div class="form-group list-of-genres genre-change ml-3"></div>
                 </div>
             </div>
             <!--director change-->
@@ -217,7 +224,7 @@
             <div class="container">
                 <div class="form-group change-of-genre bg-light border rounded justify-content-center align-item-center ">
                     <label class="form-group-text">Genres:</label>
-                    <div class="form-group list-of-genres ml-3"></div>
+                    <div class="form-group list-of-genres genre-add ml-3"></div>
                 </div>
             </div>
             <!--add director-->
@@ -254,6 +261,106 @@
             <div class="card-footer">
                 <div class="clearfix">
                     <a href="#" class="btn btn-outline-success float-right add-movie-btn"
+                       data-dismiss="modal">Submit</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Modal window to display add movie information-->
+<div class="modal" id="search-movie">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white w-100">
+                <h5 class="modal-title">Add Searched Movie Information</h5>
+                <button class="close text-white" data-dismiss="modal">&times;</button>
+            </div>
+            <!--search title-->
+            <div class="form-group change-of-title pt-2 pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="title-search" class="input-group-text">Title:</label>
+                    </div>
+                    <input class="form-control" id="title-search" placeholder="Enter new title">
+                </div>
+            </div>
+            <!--search poster-->
+            <div class="form-group change-of-poster pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="poster-search" class="input-group-text">Poster:</label>
+                    </div>
+                    <input class="form-control" id="poster-search" placeholder="Enter new poster">
+                </div>
+            </div>
+            <!--search rating-->
+            <div class="form-group change-of-rating pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="rating-search" class="input-group-text">Rating:</label>
+                    </div>
+                    <select class="form-control" id="rating-search">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <!--search year-->
+            <div class="form-group change-of-year pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="year-search" class="input-group-text">Year:</label>
+                    </div>
+                    <input class="form-control" id="year-search"
+                           placeholder="Enter year of release">
+                </div>
+            </div>
+            <!--search genre-->
+            <div class="container">
+                <div class="form-group change-of-genre bg-light border rounded justify-content-center align-item-center ">
+                    <label class="form-group-text">Genres:</label>
+                    <div class="form-group list-of-genres genre-search ml-3"></div>
+                </div>
+            </div>
+            <!--search director-->
+            <div class="form-group change-of-director pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="director-search" class="input-group-text">Director:</label>
+                    </div>
+                    <input class="form-control" id="director-search"
+                           placeholder="Enter new director">
+                </div>
+            </div>
+            <!--search plot-->
+            <div class="form-group change-of-plot pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="plot-search"
+                               class="input-group-text">Plot:</label>
+                    </div>
+                    <input class="form-control" id="plot-search"
+                           placeholder="Enter new plot">
+                </div>
+            </div>
+            <!--search actors-->
+            <div class="form-group change-of-actors pl-1 pr-1">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <label for="actors-search" class="input-group-text">Actors:</label>
+                    </div>
+                    <input class="form-control" id="actors-search" placeholder="Enter new actors">
+                </div>
+            </div>
+            <!--button submit info-->
+            <div class="card-footer">
+                <div class="clearfix">
+                    <a href="#" class="btn btn-outline-success float-right" id="submit-search-button"
                        data-dismiss="modal">Submit</a>
                 </div>
             </div>

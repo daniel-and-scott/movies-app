@@ -15,14 +15,6 @@ function getAllMovies() {
             .then(() => $('body').css('background-color', '#fff')))
 }
 
-
-//TODO: create function that takes the information from server and displays it in text field
-function getTheTitle(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('#title-change').val(title.title)))
-}
-
 //TODO: function to sort title on the web browser
 function sortTitle() {
     fetch(dataBaseUrl, {method: 'GET'})
@@ -38,20 +30,6 @@ function sortTitle() {
                 }
                 return 0;
             }))).then((movies) => showMovies(movies));
-}
-
-//TODO: function that will get the poster ID and leave it in the form box if user does not edit it
-function getThePoster(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('#poster-change').val(title.poster)))
-}
-
-//TODO: function that will get the rating and leave it in the form box if user does not edit it
-function getTheRating(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('#rating-change').val(title.rating)))
 }
 
 //TODO: function to sort rating on the web browser
@@ -71,19 +49,6 @@ function sortRating() {
             }))).then((movies) => showMovies(movies));
 }
 
-//TODO: function that will get the year and leave it in the form box if user does not edit it
-function getTheYear(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('#year-change').val(title.year)))
-}
-
-//TODO: function that will get the genre and leave it in the form box if user does not edit it
-function getTheGenres(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('.list-of-genres').val(title.genre)))
-}
 
 //TODO: Function to sort genre on the web browser
 function sortGenre() {
@@ -101,26 +66,19 @@ function sortGenre() {
                 return 0;
             }))).then((movies) => showMovies(movies));
 }
-
-//TODO: function that will get the director and leave it in the form box if user does not edit it
-function getTheDirector(id) {
+function fetchModalFields(id){
     fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
         .then(res => res.json()
-            .then(title => $('#director-change').val(title.director)))
-}
-
-//TODO: function that will get the plot and leave it in the form box if user does not edit it
-function getThePlot(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('#plot-change').val(title.plot)))
-}
-
-//TODO: function that will get the actors and leave it in the form box if user does not edit it
-function getTheActors(id) {
-    fetch(`${dataBaseUrl}/${id}`, {method: `GET`})
-        .then(res => res.json()
-            .then(title => $('#actors-change').val(title.actors)))
+            .then(record => {
+                $('#director-change').val(record.director);
+                $('#plot-change').val(record.plot);
+                $('#actors-change').val(record.actors);
+                $('.list-of-genres').val(record.genre);
+                $('#year-change').val(record.year);
+                $('#rating-change').val(record.rating);
+                $('#poster-change').val(record.poster);
+                $('#title-change').val(record.title);
+            }));
 }
 
 //TODO: Add movie to list

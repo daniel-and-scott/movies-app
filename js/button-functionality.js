@@ -3,14 +3,7 @@ $(document).on('click', '.edit-information-btn', function () {
     let dataId = $(this).data('id')
     $('.edit-btn').attr('data-id', dataId)
     $('#form-id').val(dataId)
-    getTheTitle(dataId);
-    getThePoster(dataId);
-    getTheRating(dataId);
-    getTheYear(dataId);
-    getTheGenres(dataId);
-    getTheDirector(dataId);
-    getThePlot(dataId);
-    getTheActors(dataId);
+    fetchModalFields(dataId)
 });
 
 //TODO: when button is pressed it will send data to the server and change the users input
@@ -29,7 +22,7 @@ $(document).on('click', '.edit-information-btn', function () {
 
 //TODO: if delete button is clicked will delete all data entry for that card
 $('.delete-btn').click(function () {
-    let id = $(this).data('id');
+    let id = $('#form-id').val();
     let deleteConfirmed = confirm("are you sure you want to delete this data entry?")
     if (deleteConfirmed) {
         deleteMovieFromList(id)
@@ -37,6 +30,7 @@ $('.delete-btn').click(function () {
     } else {
         alert("Action canceled")
     }
+    getAllMovies()
 });
 
 
@@ -74,3 +68,30 @@ $('.genre-dropdown').click(() => {
 $('.rating-dropdown').click(() => {
     sortRating()
 });
+
+//TODO: create functional button that takes the search-movie-submit button and will display the information of a searched
+// movie to a user
+
+$('.search-information-btn').click(() => {
+    let searchMovie = $('#search-movie-input').val();
+    searchMovieByTitle(searchMovie);
+});
+//TODO: create functional button that adds the values to the form
+$('#submit-search-button').click(() => {
+    var fav = [];
+    $.each($("input[name='genres']:checked"), function () {
+        fav.push($(this).val());
+    });
+    const newMovieToAdd = {
+        title: $('#title-search').val(),
+        rating: $('#rating-search').val(),
+        poster: $('#poster-search').val(),
+        year: $('#year-search').val(),
+        genre: fav,
+        director: $('#director-search').val(),
+        plot: $('#plot-search').val(),
+        actors: $('#actors-search').val(),
+    }
+
+    postModalFieldsOmbd(newMovieToAdd)
+})

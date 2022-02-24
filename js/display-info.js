@@ -4,9 +4,15 @@ const genreListAppended = $('.list-of-genres')
 //TODO: show movie function that will create cards for each movie that is in the json server
 function showMovies(data) {
     let allMovies = '';
+
     showMovieInfo.empty()
     data.forEach((id) => {
-        //language=html
+        let formattedGenre = '';
+        if (id.genre !== undefined && typeof id.genre !== "string"){
+            formattedGenre = id.genre.join(', ')
+        }
+
+            //language=html
         allMovies = `
             <div class="card" style="width: 21rem;">
                 <div class="card-header bg-dark">
@@ -17,12 +23,12 @@ function showMovies(data) {
                         <div class="poster d-flex justify-content-center"><img id="poster-img" src="${id.poster}">
                         </div>
                     </div>
-                    <p class="rating card-text">Rating: ${id.rating}</p>
-                    <p class="year card-text">Year: ${id.year}</p>
-                    <p class="genre card-text">Genre: ${id.genre}</p>
-                    <p class="director card-text">Director: ${id.director}</p>
-                    <p class="plot card-text">Plot: ${id.plot}</p>
-                    <p class="actors card-text">Actors: ${id.actors}</p>
+                    <div class="rating card-text">Rating: ${id.rating}</div>
+                    <div class="year card-text">Year: ${id.year}</div>
+                    <div class="genre card-text">Genre: ${formattedGenre}</div>
+                    <div class="director card-text">Director: ${id.director}</div>
+                    <div class="plot card-text">Plot: ${id.plot}</div>
+                    <div class="actors card-text">Actors: ${id.actors}</div>
                 </div>
                 <div class="card-footer">
                     <a href="#" data-id="${id.id}" class="btn btn-outline-success float-right edit-information-btn"
